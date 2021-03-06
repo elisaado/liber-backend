@@ -9,3 +9,34 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model User {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String  @unique
+
+  sets  Set[]
+}
+
+model Set {
+  id          Int     @default(autoincrement()) @id
+  title       String
+  author      User    @relation(fields: [authorId], references: [id])
+  authorId    Int
+  terms       Term[]
+  definitions Definition[]
+}
+
+model Term {
+  id    Int     @default(autoincrement()) @id
+  set   Set     @relation(fields: [setId], references: [id])
+  setId Int
+  term  String
+}
+
+model Definition {
+  id         Int     @default(autoincrement()) @id
+  set        Set     @relation(fields: [setId], references: [id])
+  setId      Int
+  definition String
+} 
