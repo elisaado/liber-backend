@@ -32,6 +32,7 @@ model Term {
   set   Set     @relation(fields: [setId], references: [id])
   setId Int
   term  String
+  definition Definition?
 }
 
 model Definition {
@@ -39,4 +40,6 @@ model Definition {
   set        Set     @relation(fields: [setId], references: [id])
   setId      Int
   definition String
+  term    Term @relation(fields: [termId], references: [id])
+  termId  Int
 } 
