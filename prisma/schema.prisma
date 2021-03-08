@@ -11,35 +11,35 @@ generator client {
 }
 
 model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  name  String  @unique
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String @unique
 
-  sets  Set[]
+  sets Set[]
 }
 
 model Set {
-  id          Int     @default(autoincrement()) @id
+  id          Int          @id @default(autoincrement())
   title       String
-  author      User    @relation(fields: [authorId], references: [id])
+  author      User         @relation(fields: [authorId], references: [id])
   authorId    Int
   terms       Term[]
   definitions Definition[]
 }
 
 model Term {
-  id    Int     @default(autoincrement()) @id
-  set   Set     @relation(fields: [setId], references: [id])
-  setId Int
-  term  String
+  id         Int         @id @default(autoincrement())
+  set        Set         @relation(fields: [setId], references: [id])
+  setId      Int
+  term       String
   definition Definition?
 }
 
 model Definition {
-  id         Int     @default(autoincrement()) @id
-  set        Set     @relation(fields: [setId], references: [id])
+  id         Int    @id @default(autoincrement())
+  set        Set    @relation(fields: [setId], references: [id])
   setId      Int
   definition String
-  term    Term @relation(fields: [termId], references: [id])
-  termId  Int
-} 
+  term       Term   @relation(fields: [termId], references: [id])
+  termId     Int
+}
