@@ -30,6 +30,7 @@
   "dependencies": {
     "@prisma/client": "^2.18.0",
     "debug": "^2.6.9",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "google-auth-library": "^7.0.2"
   }
 }
