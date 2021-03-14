@@ -9,5 +9,5 @@ app.use(express.json())
 app.use('/api', router)
 
 app.listen(3000, () => {
-    log("Listening on port 3000");
+  log("Listening on port 3000");
 });
