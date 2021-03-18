@@ -11,11 +11,11 @@ generator client {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  name  String @unique
-
-  sets Set[]
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String @unique
+  googleId String @unique
+  sets     Set[]
 }
 
 model Set {
